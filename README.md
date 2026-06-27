@@ -64,10 +64,11 @@ tests/exports/           Local export outputs, ignored by Git
 
 1. 阅读上面的入口文档顺序
 2. 从 [`docs/plugin-architecture.md`](docs/plugin-architecture.md) 了解插件方向
-3. 从 [`docs/material-pipeline.md`](docs/material-pipeline.md) 了解素材识别与输出封装
-4. 从 `src/plugin/` 查看插件外壳入口
-5. 从 `src/dctl/` 查看颜色处理模块
-6. 按 [`docs/validation-playbook.md`](docs/validation-playbook.md) 进行验证
+3. 从 [`docs/resolve-plugin-v1.md`](docs/resolve-plugin-v1.md) 了解第一版 Resolve 插件入口
+4. 从 [`docs/material-pipeline.md`](docs/material-pipeline.md) 了解素材识别与输出封装
+5. 从 `src/plugin/` 查看插件外壳入口
+6. 从 `src/dctl/` 查看颜色处理模块
+7. 按 [`docs/validation-playbook.md`](docs/validation-playbook.md) 进行验证
 
 ## Git Scope
 

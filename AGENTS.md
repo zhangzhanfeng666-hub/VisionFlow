@@ -27,7 +27,8 @@ Read these files in order before proposing or making changes:
 4. `docs/current-priority.md`
 5. `docs/dev-workflow.md`
 6. `docs/plugin-architecture.md`
-7. `docs/validation-playbook.md`
+7. `docs/resolve-plugin-v1.md`
+8. `docs/validation-playbook.md`
 
 ## Current Priority
 
