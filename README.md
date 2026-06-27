@@ -19,11 +19,12 @@ GitHub 仓库名当前为 `VisionFlow`。在这个仓库里，我们把它作为
 无论是开发者还是 AI agent，进入仓库后按这个顺序阅读：
 
 1. `README.md`
-2. [`docs/repo-scope.md`](docs/repo-scope.md)
-3. [`docs/product-intent.md`](docs/product-intent.md)
-4. [`docs/current-priority.md`](docs/current-priority.md)
-5. [`docs/dev-workflow.md`](docs/dev-workflow.md)
-6. 再进入 `src/`
+2. [`AGENTS.md`](AGENTS.md)
+3. [`docs/repo-scope.md`](docs/repo-scope.md)
+4. [`docs/product-intent.md`](docs/product-intent.md)
+5. [`docs/current-priority.md`](docs/current-priority.md)
+6. [`docs/dev-workflow.md`](docs/dev-workflow.md)
+7. 再进入 `src/`
 
 ## Repo Layout
 
