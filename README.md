@@ -31,6 +31,7 @@ GitHub 仓库名当前为 `VisionFlow`。在这个仓库里，我们把它作为
 ```text
 .vscode/                 Shared workspace settings and tasks
 docs/                    Product intent, scope, workflow, validation docs
+docs/reports/            Archived product and business background documents
 release/dctl/            DCTL files prepared for Resolve deployment
 src/dctl/                Source DCTL files
 src/common/              Shared notes, constants, math/color helpers
@@ -38,6 +39,14 @@ tests/fixtures/          Fixture policy only; raw video does not go into Git
 tests/stills/            Small validation screenshots and stills
 tests/exports/           Local export outputs, ignored by Git
 ```
+
+## Background Docs
+
+长期背景材料单独归档在 `docs/reports/`。
+
+当前报告：
+
+- [`docs/reports/HDR Creator 项目商业分析报告（V1）.md`](docs/reports/HDR%20Creator%20项目商业分析报告（V1）.md)
 
 ## Working Rules
 
