@@ -1,0 +1,34 @@
+{
+  "profiles": [
+    {
+      "id": "pocket-hdr",
+      "family": "pocket",
+      "match_extensions": [".mp4", ".mov"],
+      "filename_keywords": ["pocket", "dji", "osmo"],
+      "hdr_transfer": "rec2100-hlg",
+      "hdr_gamut": "rec2020",
+      "normalization_dctl": "src/dctl/input-normalize/HDRC_normalize_pocket_hlg.dctl",
+      "notes": "First-pass Pocket family profile for HDR publish workflow."
+    },
+    {
+      "id": "iphone-hdr",
+      "family": "iphone",
+      "match_extensions": [".mov", ".mp4"],
+      "filename_keywords": ["iphone", "apple"],
+      "hdr_transfer": "rec2100-hlg",
+      "hdr_gamut": "rec2020",
+      "normalization_dctl": "src/dctl/input-normalize/HDRC_normalize_iphone_hlg.dctl",
+      "notes": "First-pass iPhone family profile for HDR publish workflow."
+    },
+    {
+      "id": "generic-hdr",
+      "family": "generic-hdr",
+      "match_extensions": [".mov", ".mp4", ".mxf"],
+      "filename_keywords": ["hdr", "hlg", "pq"],
+      "hdr_transfer": "rec2100-hlg",
+      "hdr_gamut": "rec2020",
+      "normalization_dctl": null,
+      "notes": "Fallback HDR profile when device-specific confidence is low."
+    }
+  ]
+}

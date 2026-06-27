@@ -59,8 +59,9 @@ tests/exports/           Local export outputs, ignored by Git
 
 1. 阅读上面的入口文档顺序
 2. 从 `src/dctl/` 查看当前 DCTL 结构
-3. 在 `release/dctl/` 查看当前可投放版本
-4. 按 [`docs/validation-playbook.md`](docs/validation-playbook.md) 进行验证
+3. 从 [`docs/material-pipeline.md`](docs/material-pipeline.md) 了解素材识别与输出封装
+4. 在 `release/dctl/` 查看当前可投放版本
+5. 按 [`docs/validation-playbook.md`](docs/validation-playbook.md) 进行验证
 
 ## Git Scope
 

@@ -1,0 +1,15 @@
+{
+  "profiles": [
+    {
+      "id": "douyin-hdr",
+      "publish_target": "douyin",
+      "output_container": "mov",
+      "output_codec": "hevc-main10",
+      "output_transfer": "rec2100-hlg",
+      "output_gamut": "rec2020",
+      "metadata_strategy": "write-hdr-compatible-tags",
+      "publish_dctl": "src/dctl/hdr-publish/HDRC_publish_pocket_hdr.dctl",
+      "notes": "Current first-phase priority output profile."
+    }
+  ]
+}
