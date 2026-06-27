@@ -1,5 +1,19 @@
+DEFINE_UI_PARAMS(input_gain, Input Gain, DCTLUI_SLIDER_FLOAT, 1.0, 0.5, 1.5, 0.01)
+DEFINE_UI_PARAMS(contrast, Contrast, DCTLUI_SLIDER_FLOAT, 1.0, 0.5, 1.5, 0.01)
+DEFINE_UI_PARAMS(saturation, Saturation, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 2.0, 0.01)
+
 __DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B)
 {
     float3 rgb = make_float3(p_R, p_G, p_B);
+    float pivot = 0.5;
+    float luma;
+    float3 neutral;
+
+    rgb *= input_gain;
+    rgb = (rgb - make_float3(pivot, pivot, pivot)) * contrast + make_float3(pivot, pivot, pivot);
+    luma = rgb.x * 0.2627 + rgb.y * 0.6780 + rgb.z * 0.0593;
+    neutral = make_float3(luma, luma, luma);
+    rgb = neutral + (rgb - neutral) * saturation;
+
     return rgb;
 }

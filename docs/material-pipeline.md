@@ -8,7 +8,7 @@
 - 色彩转换规划
 - 输出规划
 
-这层封装的目标不是立刻替代 Resolve，而是先把“识别逻辑”和“发布逻辑”的决策收口到同一个接口里，避免后续脚本、DCTL、导出规则各写各的。
+这层封装的目标不是立刻替代 Resolve，而是先把“识别逻辑”和“发布逻辑”的决策收口到同一个接口里，作为插件/脚本外壳的后端决策层，避免后续脚本、DCTL、导出规则各写各的。
 
 ## Current Implementation
 
@@ -22,6 +22,8 @@
 - `src/workflow/cli.py`
 
 统一入口是 `HDRWorkflowService`。
+
+它应被插件外壳调用，而不是被当成最终产品界面本身。
 
 ## Encapsulation Boundary
 
@@ -103,5 +105,5 @@ python -m src.workflow.cli plan path/to/asset.mov --device-family pocket
 
 1. 用真实素材和命名规则校正识别逻辑
 2. 把 DCTL scaffold 替换成真实的归一和发布逻辑
-3. 增加一个真正执行输出的 backend
+3. 增加 Resolve 插件/脚本侧的执行 backend
 4. 明确 Pocket / iPhone 的输入特性差异

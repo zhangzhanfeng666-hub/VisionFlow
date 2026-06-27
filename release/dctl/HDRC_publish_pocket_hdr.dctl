@@ -1,11 +1,28 @@
 DEFINE_UI_PARAMS(strength, Publish Strength, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 2.0, 0.01)
+DEFINE_UI_PARAMS(highlight_rolloff, Highlight Rolloff, DCTLUI_SLIDER_FLOAT, 1.0, 0.5, 1.5, 0.01)
+DEFINE_UI_PARAMS(saturation, Saturation, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 2.0, 0.01)
+
+__DEVICE__ float _clampf(float x, float lo, float hi)
+{
+    return x < lo ? lo : (x > hi ? hi : x);
+}
 
 __DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B)
 {
     float3 rgb = make_float3(p_R, p_G, p_B);
+    float luma;
+    float3 neutral;
 
-    // Release copy of the current scaffold DCTL.
     rgb *= strength;
+    rgb.x = _clampf(rgb.x, 0.0, 100.0);
+    rgb.y = _clampf(rgb.y, 0.0, 100.0);
+    rgb.z = _clampf(rgb.z, 0.0, 100.0);
+    rgb.x = pow(rgb.x, highlight_rolloff);
+    rgb.y = pow(rgb.y, highlight_rolloff);
+    rgb.z = pow(rgb.z, highlight_rolloff);
+    luma = rgb.x * 0.2627 + rgb.y * 0.6780 + rgb.z * 0.0593;
+    neutral = make_float3(luma, luma, luma);
+    rgb = neutral + (rgb - neutral) * saturation;
 
     return rgb;
 }

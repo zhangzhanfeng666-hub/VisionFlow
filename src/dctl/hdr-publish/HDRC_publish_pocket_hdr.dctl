@@ -1,13 +1,31 @@
 DEFINE_UI_PARAMS(strength, Publish Strength, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 2.0, 0.01)
+DEFINE_UI_PARAMS(highlight_rolloff, Highlight Rolloff, DCTLUI_SLIDER_FLOAT, 1.0, 0.5, 1.5, 0.01)
+DEFINE_UI_PARAMS(saturation, Saturation, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 2.0, 0.01)
+
+__DEVICE__ float _clampf(float x, float lo, float hi)
+{
+    return x < lo ? lo : (x > hi ? hi : x);
+}
 
 __DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B)
 {
     float3 rgb = make_float3(p_R, p_G, p_B);
+    float luma;
+    float3 neutral;
 
-    // Minimal scaffold DCTL:
-    // keep source image unchanged while establishing naming, release flow,
-    // and a visible parameter hook for later HDR publish experiments.
     rgb *= strength;
+    rgb.x = _clampf(rgb.x, 0.0, 100.0);
+    rgb.y = _clampf(rgb.y, 0.0, 100.0);
+    rgb.z = _clampf(rgb.z, 0.0, 100.0);
+
+    // Gentle highlight compression scaffold for publish testing.
+    rgb.x = pow(rgb.x, highlight_rolloff);
+    rgb.y = pow(rgb.y, highlight_rolloff);
+    rgb.z = pow(rgb.z, highlight_rolloff);
+
+    luma = rgb.x * 0.2627 + rgb.y * 0.6780 + rgb.z * 0.0593;
+    neutral = make_float3(luma, luma, luma);
+    rgb = neutral + (rgb - neutral) * saturation;
 
     return rgb;
 }

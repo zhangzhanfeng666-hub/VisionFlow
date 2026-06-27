@@ -4,10 +4,16 @@
 
 优先改 `src/`，不要把临时实验直接堆在 `release/`。
 
+当前主开发顺序是：
+
+1. `src/plugin/` 外壳
+2. `src/workflow/` 识别与规划
+3. `src/dctl/` 颜色模块
+
 ## Normal Flow
 
 1. 从 `main` 拉出分支
-2. 在 `src/dctl/` 或 `src/common/` 做改动
+2. 在 `src/plugin/`、`src/workflow/`、`src/dctl/` 或 `src/common/` 做改动
 3. 如有需要，同步更新 `release/dctl/`
 4. 补充文档或验证截图
 5. 合并回 `main`
@@ -32,6 +38,8 @@
 
 ## Release Handling
 
+- `src/plugin/` 保持插件/脚本入口清晰
+- `src/workflow/` 保持识别、规划、输出逻辑清晰
 - `src/dctl/` 保持可读、可维护
 - `release/dctl/` 保持可投放到 Resolve
 - 发布副本命名统一使用 `HDRC_` 前缀

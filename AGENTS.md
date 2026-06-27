@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is the `HDR Creator` DCTL workspace for first-phase MVP development.
+This repository is the `HDR Creator` Resolve plugin/script workspace for first-phase MVP development.
 
 It is not:
 
@@ -13,7 +13,8 @@ It is not:
 It is for validating:
 
 - `Pocket + iPhone -> HDR publish`
-- DCTL experiments for HDR release workflow
+- plugin/script orchestration for HDR release workflow
+- DCTL-based color modules used by that workflow
 - lightweight, reproducible collaboration between humans and AI agents
 
 ## Read Order
@@ -25,7 +26,8 @@ Read these files in order before proposing or making changes:
 3. `docs/product-intent.md`
 4. `docs/current-priority.md`
 5. `docs/dev-workflow.md`
-6. `docs/validation-playbook.md`
+6. `docs/plugin-architecture.md`
+7. `docs/validation-playbook.md`
 
 ## Current Priority
 
@@ -34,6 +36,7 @@ Only optimize for the current first-phase path:
 - capture HDR
 - normalize input if needed
 - publish HDR correctly
+- orchestrate the above through a Resolve-facing shell
 
 Current device focus:
 
@@ -52,11 +55,13 @@ Do not expand scope without explicit confirmation into:
 
 ## Source Of Truth
 
-- `src/` contains editable source
-- `release/dctl/` contains deployment-ready copies
+- `src/plugin/` contains plugin/script shell work
+- `src/workflow/` contains recognition and planning logic
+- `src/dctl/` contains color-processing modules
+- `release/dctl/` contains deployment-ready DCTL copies
 - `docs/` contains project intent and workflow rules
 
-Do not treat `release/` as the authoring source.
+Do not treat `release/` as the authoring source, and do not treat `DCTL` as the whole product.
 
 ## Naming Conventions
 

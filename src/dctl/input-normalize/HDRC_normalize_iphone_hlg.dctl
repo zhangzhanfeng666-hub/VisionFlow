@@ -1,7 +1,20 @@
+DEFINE_UI_PARAMS(input_gain, Input Gain, DCTLUI_SLIDER_FLOAT, 1.0, 0.5, 1.5, 0.01)
+DEFINE_UI_PARAMS(highlight_softness, Highlight Softness, DCTLUI_SLIDER_FLOAT, 1.0, 0.5, 1.5, 0.01)
+DEFINE_UI_PARAMS(saturation, Saturation, DCTLUI_SLIDER_FLOAT, 1.0, 0.0, 2.0, 0.01)
+
 __DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B)
 {
     float3 rgb = make_float3(p_R, p_G, p_B);
+    float luma;
+    float3 neutral;
 
-    // First-pass scaffold for iPhone-family input normalization.
+    rgb *= input_gain;
+    rgb.x = pow(rgb.x, highlight_softness);
+    rgb.y = pow(rgb.y, highlight_softness);
+    rgb.z = pow(rgb.z, highlight_softness);
+    luma = rgb.x * 0.2627 + rgb.y * 0.6780 + rgb.z * 0.0593;
+    neutral = make_float3(luma, luma, luma);
+    rgb = neutral + (rgb - neutral) * saturation;
+
     return rgb;
 }
