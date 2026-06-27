@@ -1,0 +1,29 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code local-only
+.vscode/*.log
+
+# Python / scripts
+__pycache__/
+*.pyc
+
+# Resolve / media / exports
+tests/exports/**
+*.mov
+*.mp4
+*.mxf
+*.braw
+*.r3d
+*.ari
+*.wav
+*.aif
+*.aiff
+
+# Caches / temporary files
+*.tmp
+*.temp
+*.cache
+*.bak

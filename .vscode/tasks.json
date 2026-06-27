@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open README",
+      "type": "shell",
+      "command": "code README.md"
+    },
+    {
+      "label": "Open Validation Playbook",
+      "type": "shell",
+      "command": "code docs/validation-playbook.md"
+    }
+  ]
+}

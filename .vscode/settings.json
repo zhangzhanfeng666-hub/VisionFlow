@@ -1,0 +1,9 @@
+{
+  "files.encoding": "utf8",
+  "files.associations": {
+    "*.dctl": "c"
+  },
+  "search.exclude": {
+    "**/tests/exports": true
+  }
+}
