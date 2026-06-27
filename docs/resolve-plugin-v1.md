@@ -91,3 +91,13 @@ Resolve 用户脚本目录：
 - `Queue Render Job`
 
 它现在已经可以作为插件第一版原型使用，而不只是一个静态计划查看器。
+
+## Compatibility Note
+
+Resolve 内置脚本解释器的 Python 版本可能低于本机开发 Python。
+
+因此 Resolve 内实际安装的脚本优先采用“兼容模式”写法：
+
+- 不依赖现代类型语法
+- 不在窗口启动阶段强依赖仓库内部模块
+- 先确保窗口和基础动作可运行，再逐步接回完整 workflow engine
