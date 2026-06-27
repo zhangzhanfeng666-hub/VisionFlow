@@ -54,12 +54,14 @@ DaVinci Resolve 当前最 relevant 的插件/扩展接口有三类：
 
 ## V1 Capabilities
 
-第一版脚本插件当前支持：
+当前脚本插件原型支持：
 
 - 选择素材路径
 - 指定设备识别模式或自动识别
 - 生成 HDR 发布工作流计划
-- 可选把素材导入当前媒体池
+- 可选把素材导入目标 bin
+- 从目标 bin 创建 timeline
+- 生成 render job 到当前项目的渲染队列
 
 ## Installed Script Location
 
@@ -78,3 +80,14 @@ Resolve 用户脚本目录：
 - `Workspace > Scripts > Utility > HDR_Creator_Workflow`
 
 如果脚本没有出现，重启 Resolve 一次最稳。
+
+## Current UI Actions
+
+当前窗口里的关键动作：
+
+- `Generate Plan`
+- `Import To Bin`
+- `Create Timeline`
+- `Queue Render Job`
+
+它现在已经可以作为插件第一版原型使用，而不只是一个静态计划查看器。
